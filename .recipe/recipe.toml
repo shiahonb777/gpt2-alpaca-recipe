@@ -1,0 +1,20 @@
+[recipe]
+version = "0.1"
+name = "gpt2-alpaca"
+
+[base]
+ref = "gpt2"
+
+[training]
+method = "lora"
+
+[[adapters]]
+type = "lora"
+artifact = "sha256:ad2da5c75adc880818cca1692ecff1ccc5e8259a22a279ee664071fc9cb69bb4"
+target_modules = [
+    "c_attn",
+]
+rank = 8
+alpha = 16.0
+fan_in_fan_out = true
+bias = "none"
